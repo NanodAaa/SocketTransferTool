@@ -1,4 +1,4 @@
-// NetTelecomDlg.h : Í·ÎÄ¼ş
+// NetTelecomDlg.h : å¤´æ–‡ä»¶
 // Powered By NanodAaa
 // 2023/11/18
 
@@ -6,26 +6,26 @@
 #include "Global.h"
 #include "afxcmn.h"
 
-// CNetTelecomDlg ¶Ô»°¿ò
+// CNetTelecomDlg å¯¹è¯æ¡†
 class CNetTelecomDlg : public CDialogEx
 {
-// ¹¹Ôì
+// æ„é€ 
 public:
-	CNetTelecomDlg(CWnd* pParent = NULL);	// ±ê×¼¹¹Ôìº¯Êı
+	CNetTelecomDlg(CWnd* pParent = NULL);	// æ ‡å‡†æ„é€ å‡½æ•°
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_NETTELECOM_DIALOG };
 #endif
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	HICON m_hIcon;
 
-	// Éú³ÉµÄÏûÏ¢Ó³Éäº¯Êı
+	// ç”Ÿæˆçš„æ¶ˆæ¯æ˜ å°„å‡½æ•°
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
@@ -33,7 +33,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	
-	CEdit m_editSend;		// SendBox
+	CEdit m_editSend;	// SendBox
 	CEdit m_editReceive;	// ReceiveBox
 	CEdit m_editRCVDPort;
 	CEdit m_editTGTPort;
