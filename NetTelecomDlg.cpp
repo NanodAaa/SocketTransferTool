@@ -22,22 +22,22 @@ CTime g_Time;
 CList<SReadThread, SReadThread&> g_ThreadList;
 HTREEITEM TCP_CLIENT;
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ç”¨äºåº”ç”¨ç¨‹åºâ€œå…³äºâ€èœå•é¡¹çš„ CAboutDlg å¯¹è¯æ¡†
 
 class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -55,7 +55,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CNetTelecomDlg ¶Ô»°¿ò
+// CNetTelecomDlg å¯¹è¯æ¡†
 CNetTelecomDlg::CNetTelecomDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_NETTELECOM_DIALOG, pParent)
 {
@@ -86,15 +86,14 @@ BEGIN_MESSAGE_MAP(CNetTelecomDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CNetTelecomDlg ÏûÏ¢´¦Àí³ÌĞò
-
+// CNetTelecomDlg æ¶ˆæ¯å¤„ç†ç¨‹åº
 BOOL CNetTelecomDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖĞ¡£
+	// å°†â€œå…³äº...â€èœå•é¡¹æ·»åŠ åˆ°ç³»ç»Ÿèœå•ä¸­ã€‚
 
-	// IDM_ABOUTBOX ±ØĞëÔÚÏµÍ³ÃüÁî·¶Î§ÄÚ¡£
+	// IDM_ABOUTBOX å¿…é¡»åœ¨ç³»ç»Ÿå‘½ä»¤èŒƒå›´å†…ã€‚
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -112,12 +111,12 @@ BOOL CNetTelecomDlg::OnInitDialog()
 		}
 	}
 
-	// ÉèÖÃ´Ë¶Ô»°¿òµÄÍ¼±ê¡£  µ±Ó¦ÓÃ³ÌĞòÖ÷´°¿Ú²»ÊÇ¶Ô»°¿òÊ±£¬¿ò¼Ü½«×Ô¶¯
-	//  Ö´ĞĞ´Ë²Ù×÷
-	SetIcon(m_hIcon, TRUE);			// ÉèÖÃ´óÍ¼±ê
-	SetIcon(m_hIcon, FALSE);		// ÉèÖÃĞ¡Í¼±ê
+	// è®¾ç½®æ­¤å¯¹è¯æ¡†çš„å›¾æ ‡ã€‚  å½“åº”ç”¨ç¨‹åºä¸»çª—å£ä¸æ˜¯å¯¹è¯æ¡†æ—¶ï¼Œæ¡†æ¶å°†è‡ªåŠ¨
+	//  æ‰§è¡Œæ­¤æ“ä½œ
+	SetIcon(m_hIcon, TRUE);			// è®¾ç½®å¤§å›¾æ ‡
+	SetIcon(m_hIcon, FALSE);		// è®¾ç½®å°å›¾æ ‡
 
-	// TODO: ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–ä»£ç 
 	m_comboOrder.AddString(TEXT("0"));
 	m_comboOrder.AddString(TEXT("1"));
 	m_bMsgSendFlag = FALSE;
@@ -134,7 +133,7 @@ BOOL CNetTelecomDlg::OnInitDialog()
 	UpdateData();
 #endif
 
-	return TRUE;  // ³ı·Ç½«½¹µãÉèÖÃµ½¿Ø¼ş£¬·ñÔò·µ»Ø TRUE
+	return TRUE;  // é™¤éå°†ç„¦ç‚¹è®¾ç½®åˆ°æ§ä»¶ï¼Œå¦åˆ™è¿”å› TRUE
 }
 
 void CNetTelecomDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -150,19 +149,18 @@ void CNetTelecomDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// Èç¹ûÏò¶Ô»°¿òÌí¼Ó×îĞ¡»¯°´Å¥£¬ÔòĞèÒªÏÂÃæµÄ´úÂë
-//  À´»æÖÆ¸ÃÍ¼±ê¡£  ¶ÔÓÚÊ¹ÓÃÎÄµµ/ÊÓÍ¼Ä£ĞÍµÄ MFC Ó¦ÓÃ³ÌĞò£¬
-//  Õâ½«ÓÉ¿ò¼Ü×Ô¶¯Íê³É¡£
-
+// å¦‚æœå‘å¯¹è¯æ¡†æ·»åŠ æœ€å°åŒ–æŒ‰é’®ï¼Œåˆ™éœ€è¦ä¸‹é¢çš„ä»£ç 
+//  æ¥ç»˜åˆ¶è¯¥å›¾æ ‡ã€‚  å¯¹äºä½¿ç”¨æ–‡æ¡£/è§†å›¾æ¨¡å‹çš„ MFC åº”ç”¨ç¨‹åºï¼Œ
+//  è¿™å°†ç”±æ¡†æ¶è‡ªåŠ¨å®Œæˆã€‚
 void CNetTelecomDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+		CPaintDC dc(this); // ç”¨äºç»˜åˆ¶çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
+		// ä½¿å›¾æ ‡åœ¨å·¥ä½œåŒºçŸ©å½¢ä¸­å±…ä¸­
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -170,7 +168,7 @@ void CNetTelecomDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// »æÖÆÍ¼±ê
+		// ç»˜åˆ¶å›¾æ ‡
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -180,8 +178,8 @@ void CNetTelecomDlg::OnPaint()
 }
 
 
-//µ±ÓÃ»§ÍÏ¶¯×îĞ¡»¯´°¿ÚÊ±ÏµÍ³µ÷ÓÃ´Ëº¯ÊıÈ¡µÃ¹â±ê
-//ÏÔÊ¾¡£
+//å½“ç”¨æˆ·æ‹–åŠ¨æœ€å°åŒ–çª—å£æ—¶ç³»ç»Ÿè°ƒç”¨æ­¤å‡½æ•°å–å¾—å…‰æ ‡
+//æ˜¾ç¤ºã€‚
 HCURSOR CNetTelecomDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
@@ -196,17 +194,17 @@ int CNetTelecomDlg::ServerHandler(UINT nScoketPort)
 
 	if (!AfxSocketInit())
 	{
-		MessageBox(TEXT("AfxSocketInit Failed!"), TEXT("ERROR"));	return -1;
+		MessageBox(TEXT("AfxSocketInit Failed!"), TEXT("ERROR")); return -1;
 	}
 	if (!g_socketServer.Create(nScoketPort))
 	{
 		strTemp.Format(TEXT("%s%d"), TEXT("SocketServer create failed! Code: "), g_socketServer.GetLastError());
-		MessageBox(strTemp, TEXT("ERROR"));	return -1;
+		MessageBox(strTemp, TEXT("ERROR")); return -1;
 	}
 	if (!g_socketServer.Listen())
 	{
 		strTemp.Format(TEXT("%s%d"), TEXT("SocketServer listen failed! Code: "), g_socketServer.GetLastError());
-		MessageBox(strTemp, TEXT("ERROR"));	return -1;
+		MessageBox(strTemp, TEXT("ERROR")); return -1;
 	}
 
 	// Create Server accept thread
@@ -299,7 +297,7 @@ UINT ServerReadThreadCTRL(LPVOID pParam)
 			strTemp = strTime + TEXT("->") + THREAD_LIST.m_ADDRFamily.m_strADDR + TEXT("->") + strTemp;
 
 			// Display msg
-			pDlg->m_editReceive.SetSel(-1, -1);	// Auto scorll
+			pDlg->m_editReceive.SetSel(-1, -1);			// Auto scorll
 			pDlg->m_editReceive.ReplaceSel(strTemp + "\r\n");	// Auto enter
 			strTemp.Format(TEXT("%s%d%s"), TEXT("You have received "), strTemp.GetLength(), TEXT(" Bytes!"));
 			pDlg->GetDlgItem(IDC_EDIT_MESSAGE)->SetWindowText(strTemp);
@@ -406,7 +404,7 @@ UINT __cdecl ClientReadThreadCTRL(LPVOID pParam)
 // Send msg when click this button
 void CNetTelecomDlg::OnBnClickedButtonSend()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	CString strTemp;
 	char cSend[1024];
 	m_editSend.GetWindowText(strTemp);
@@ -415,7 +413,7 @@ void CNetTelecomDlg::OnBnClickedButtonSend()
 	if (g_nIndex == INDEX_SERVER)
 	{
 		// Get the selection of the tree
-		HTREEITEM treeNodeTemp = m_treeADDR.GetSelectedItem();	// »áÒ»Ö±±£³ÖÑ¡ÔñÒÔÉ¾³ıµÄ½ÚµãµÄ×´Ì¬
+		HTREEITEM treeNodeTemp = m_treeADDR.GetSelectedItem();	// ä¼šä¸€ç›´ä¿æŒé€‰æ‹©ä»¥åˆ é™¤çš„èŠ‚ç‚¹çš„çŠ¶æ€
 		if (treeNodeTemp == NULL || treeNodeTemp == TCP_CLIENT) 
 		{ 
 			m_editMessage.SetWindowText(TEXT("Please select a client!"));	return;
@@ -457,7 +455,7 @@ void CNetTelecomDlg::OnBnClickedButtonSend()
 // Start Connection
 void CNetTelecomDlg::OnBnClickedButtonStart()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	g_nIndex = m_comboOrder.GetCurSel();	// Set order
 	if (g_nIndex == INDEX_SERVER)	// Server
 	{
